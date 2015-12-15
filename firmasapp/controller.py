@@ -1,29 +1,5 @@
 #!/usr/bin/python2.7 -tt
-import cgi
-from cgi import parse_qs
-import httplib2
-import oauth2client
-import six
-import uritemplate
-#import gdata.apps.emailsettings.client
 
 def application(environ,start_response):
-    parametres = parse_qs(environ['QUERY_STRING'])
-
-    usuaris = parametres.get('arrayUsuaris',[])[0]
-    arrayUsuaris = usuaris.split(',')
-    mails = parametres.get('arrayMails',[])[0]
-    arrayMails = mails.split(',')
-    organizacion = parametres.get('organization',[''])[0]
-    domainName = parametres.get('domainName',[''])[0]
-    adminMail = parametres.get('adminMail',[''])[0]
-    adminPass = parametres.get('adminPass',[''])[0]
     start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
-    
-    contador = 0
-    firmas = []
-
-    while contador < len(arrayUsuaris):
-	firmas.append(arrayUsuaris[contador]+" <"+arrayMails[contador]+"> "+organizacion+"   "+domainName)
-	contador += 1
-    yield str(firmas)
+    yield "Hola"
